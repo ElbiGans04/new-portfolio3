@@ -29,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-full h-full min-h-screen grid grid-cols-4">
+        <div className="w-full h-full min-h-screen max-h-screen grid grid-cols-4">
           {/* List Of Page */}
-          <div className="border-r-1 border-white border-solid flex flex-col items-center pt-24 p-5 gap-[48px]">
+          <div className="max-h-screen flex flex-col justify-center items-center pt-24 p-5 gap-[48px]">
             <div className="gap-[36px] flex flex-col ">
               {[
                 { nameTitle: "About Me", path: "/" },
@@ -50,7 +50,7 @@ export default function RootLayout({
             </div>
           </div>
           {/* Main Page */}
-          <div className="col-span-3 px-10 py-24">
+          <div className="border-l-1 border-white border-solid col-span-3 px-10 py-24">
             <div className="">{children}</div>
             <footer className="mt-10">
               <p>
