@@ -50,7 +50,7 @@ export default function RootLayout({
             </div>
           </div>
           {/* Main Page */}
-          <div className="border-l-1 border-white border-solid col-span-3 px-10 py-24">
+          <div className="col-span-3 px-10 py-24">
             <div className="">{children}</div>
             <footer className="mt-10">
               <p>
