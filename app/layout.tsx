@@ -37,7 +37,7 @@ export default function RootLayout({
                 { nameTitle: "About Me", path: "/" },
                 { nameTitle: "Carrers", path: "/carrers" },
                 { nameTitle: "Contacts", path: "/contacts" },
-                { nameTitle: "Portfolios", path: "/portfolio" },
+                { nameTitle: "Portfolios", path: "/portfolios" },
               ].map((value) => (
                 <Link href={value.path} key={value.nameTitle} className="hover:underline font-bold">
                   {value.nameTitle}
