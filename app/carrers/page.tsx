@@ -11,7 +11,7 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
   return (
     <>
       <div className="flex flex-col gap-3">
-        <h1 className="text-5xl">Carrers</h1>
+        <h1 className="text-2xl lg:text-5xl">Carrers</h1>
         <div className="flex gap-4">
           {/* Selain active, maka tampilkan semua */}
           <Link
@@ -38,8 +38,8 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
         {/* Item */}
         <div className="flex flex-col gap-5">
           <div>
-            <h2 className="text-2xl">PT. KANEZZA TECH</h2>
-            <p className="text-md">Tangerang | Nov, 2023 - Apr, 2024</p>
+            <h2 className="text-xl lg:text-2xl">PT. KANEZZA TECH</h2>
+            <p className="lg:text-md">Tangerang | Nov, 2023 - Apr, 2024</p>
             <p className="text-md font-bold">Fullstack Developer</p>
           </div>
           <p className="text-md">
@@ -58,8 +58,8 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
         {/* Item */}
         <div className="flex flex-col gap-5">
           <div>
-            <h2 className="text-2xl">PT. INARRAY INDONESIA</h2>
-            <p className="text-md">Tangerang | Aug, 2022 - Okt, 2023</p>
+            <h2 className="text-xl lg:text-2xl">PT. INARRAY INDONESIA</h2>
+            <p className="lg:text-md">Tangerang | Aug, 2022 - Okt, 2023</p>
             <p className="text-md font-bold">Frontend Developer</p>
           </div>
           <p className="text-md">

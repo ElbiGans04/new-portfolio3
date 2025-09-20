@@ -9,7 +9,7 @@ export default async function ContactsPage() {
   return (
     <>
       <div className="flex flex-col gap-3">
-        <h1 className="text-5xl">Contacts</h1>
+        <h1 className="text-2xl lg:text-5xl">Contacts</h1>
         <p>Interested in collaborating? Please contact me via email below.</p>
       </div>
       <div className="mt-8 gap-16 flex flex-col">

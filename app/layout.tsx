@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { IoMdClose } from "react-icons/io";
+import ResponsiveNavbar from "./_layouts/responsiveNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,28 +31,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-full h-full min-h-screen max-h-screen grid grid-cols-4">
+        <div className="w-full h-full min-h-screen max-h-screen lg:grid lg:grid-cols-4 relative">
           {/* List Of Page */}
-          <div className="max-h-screen flex flex-col justify-center items-center pt-24 p-5 gap-[48px]">
-            <div className="gap-[36px] flex flex-col ">
-              {[
-                { nameTitle: "About Me", path: "/" },
-                { nameTitle: "Carrers", path: "/carrers" },
-                { nameTitle: "Contacts", path: "/contacts" },
-                { nameTitle: "Portfolios", path: "/portfolios" },
-              ].map((value) => (
-                <Link href={value.path} key={value.nameTitle} className="hover:underline font-bold">
-                  {value.nameTitle}
-                </Link>
-              ))}
-            </div>
-            <div className="flex gap-5">
-              <div>ENGLISH</div>
-              <div>INDONESIA</div>
-            </div>
-          </div>
+          <ResponsiveNavbar>
+            <>
+              <div className="h-[1px] bg-white"></div>
+
+              <div className="flex gap-5">
+                <div>ENGLISH</div>
+                <div>INDONESIA</div>
+              </div>
+            </>
+          </ResponsiveNavbar>
+
           {/* Main Page */}
-          <div className="col-span-3 px-10 py-24">
+          <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8">
             <div className="">{children}</div>
             <footer className="mt-10">
               <p>

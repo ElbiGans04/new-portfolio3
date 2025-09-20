@@ -8,7 +8,7 @@ export default function PortfoliosPage() {
   return (
     <>
       <div className="flex flex-col gap-3">
-        <h1 className="text-5xl">CGS: Itradefund</h1>
+        <h1 className="text-2xl lg:text-5xl">CGS: Itradefund</h1>
         <div className="flex flex-col gap-1">
           <p>
             <span className="font-bold">Development Time</span> : 20 Aug 2025 -
