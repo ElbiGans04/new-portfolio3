@@ -38,7 +38,7 @@ export default function ResponsiveNavbar({
       {/* ${isNavbarShowing ? 'max-md:top-0' : 'max-md:top-[-100%]'} */}
       <div
         ref={ref}
-        className={`transition-all duration-[0.5s] fixed max-md:right-0 max-md:left-0 max-md:bottom-0 max-md:bg-black lg:relative  max-h-screen flex flex-col lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-100%]`}
+        className={`transition-all duration-[0.5s] fixed max-md:right-0 max-md:left-0 max-md:bottom-0 max-md:bg-black lg:relative  max-h-screen flex flex-col lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-1000%]`}
       >
         <div className="lg:hidden">
           <button
