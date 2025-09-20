@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Link from "next/link";
-import { IoMdClose } from "react-icons/io";
 import ResponsiveNavbar from "./_layouts/responsiveNavbar";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
