@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import ResponsiveNavbar from "./_layouts/responsiveNavbar";
 import "./globals.css";
+import ButtonScrollToTop from "./_layouts/buttonScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,9 @@ export default function RootLayout({
               </div>
             </>
           </ResponsiveNavbar>
+
+          {/* Button Scroll To TOP */}
+          <ButtonScrollToTop></ButtonScrollToTop>
 
           {/* Main Page */}
           <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8">
