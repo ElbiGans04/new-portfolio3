@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import LinkCustomPortfolios from "./_components/link";
 
 export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
@@ -31,7 +32,7 @@ export default function PortfoliosPage() {
         {Array(4)
           .fill(null)
           .map((value, index) => (
-            <Link href="/portfolios/1" key={index}>
+            <LinkCustomPortfolios href="/portfolios/1" key={index}>
               <div className="border-1 border-solid border-gray-700 p-5 rounded hover:cursor-pointer transition hover:bg-white hover:text-black hover:scale-[1.03]">
                 <div className="head">
                   <p className="text-xl font-bold">CGS: Itradefund</p>
@@ -48,7 +49,7 @@ export default function PortfoliosPage() {
                   </div>
                 </div>
               </div>
-            </Link>
+            </LinkCustomPortfolios>
           ))}
       </div>
     </>

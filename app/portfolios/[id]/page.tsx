@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import LinkCustomPortfolios from "../_components/link";
 
 export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
@@ -9,7 +10,7 @@ export default function PortfoliosPage() {
   return (
     <>
       <div className="flex gap-3 mb-6">
-        <Link className="underline" href={"/portfolios"}>Portfolios</Link>
+        <LinkCustomPortfolios className="underline" href={"/portfolios"}>Portfolios</LinkCustomPortfolios>
         <p>/</p>
         <p>TEST TEST TEST</p>
       </div>

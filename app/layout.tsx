@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import ResponsiveNavbar from "./_layouts/responsiveNavbar";
 import "./globals.css";
 import ButtonScrollToTop from "./_layouts/buttonScrollToTop";
+import WrapperAppContext from "./_layouts/wrapperAppContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,33 +31,35 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-full h-full min-h-screen max-h-screen lg:grid lg:grid-cols-4 relative">
-          {/* List Of Page */}
-          <ResponsiveNavbar>
-            <>
-              <div className="h-[1px] bg-white"></div>
+        <WrapperAppContext>
+          <div className="w-full h-full min-h-screen max-h-screen lg:grid lg:grid-cols-4 relative">
+            {/* List Of Page */}
+            <ResponsiveNavbar>
+              <>
+                <div className="h-[1px] bg-white"></div>
 
-              <div className="flex gap-5">
-                <div>ENGLISH</div>
-                <div>INDONESIA</div>
-              </div>
-            </>
-          </ResponsiveNavbar>
+                <div className="flex gap-5">
+                  <div>ENGLISH</div>
+                  <div>INDONESIA</div>
+                </div>
+              </>
+            </ResponsiveNavbar>
 
-          {/* Button Scroll To TOP */}
-          <ButtonScrollToTop></ButtonScrollToTop>
+            {/* Button Scroll To TOP */}
+            <ButtonScrollToTop></ButtonScrollToTop>
 
-          {/* Main Page */}
-          <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8">
-            <div className="">{children}</div>
-            <footer className="mt-10">
-              <p>
-                Copyright 2025{yearNow === 2025 ? "" : `-${yearNow}`} - Rhafael
-                Bijaksana
-              </p>
-            </footer>
+            {/* Main Page */}
+            <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8">
+              <div className="">{children}</div>
+              <footer className="mt-10">
+                <p>
+                  Copyright 2025{yearNow === 2025 ? "" : `-${yearNow}`} -
+                  Rhafael Bijaksana
+                </p>
+              </footer>
+            </div>
           </div>
-        </div>
+        </WrapperAppContext>
       </body>
     </html>
   );

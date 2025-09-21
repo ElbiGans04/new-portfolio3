@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import AppContext from "../_contexts/appContext";
 
 function toggleActiveAttribute(element: HTMLDivElement | null) {
   // kalau element ada
@@ -26,11 +27,13 @@ export default function ResponsiveNavbar({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const pathName = usePathname();
-  const [loading, setLoading] = useState(false);
+  const {loading, setLoading} = use(AppContext);
 
   // Special Hook Effect
   useEffect(() => {
-    setLoading(false);
+    if (setLoading) {
+      setLoading(false);
+    }
   }, [pathName, setLoading]);
 
   return (
@@ -64,7 +67,9 @@ export default function ResponsiveNavbar({
                 toggleActiveAttribute(ref.current);
 
                 if (pathName !== value.path) {
-                  setLoading(true);
+                  if (setLoading) {
+                    setLoading(true);
+                  }
                 }
               }}
             >
