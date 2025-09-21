@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-white selection:text-black`}
       >
         <WrapperAppContext>
           <div className="w-full h-full min-h-screen max-h-screen lg:grid lg:grid-cols-4 relative">
