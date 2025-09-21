@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
@@ -7,6 +8,11 @@ export const metadata: Metadata = {
 export default function PortfoliosPage() {
   return (
     <>
+      <div className="flex gap-3 mb-6">
+        <Link className="underline" href={"/portfolios"}>Portfolios</Link>
+        <p>/</p>
+        <p>TEST TEST TEST</p>
+      </div>
       <div className="flex flex-col gap-3">
         <h1 className="text-2xl lg:text-5xl">CGS: Itradefund</h1>
         <div className="flex flex-col gap-1">
