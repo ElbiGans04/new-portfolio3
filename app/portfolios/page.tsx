@@ -14,14 +14,14 @@ export default function PortfoliosPage() {
         <p>Below are some of the projects I have worked on.</p>
         <div className="flex flex-col gap-6">
           <div className="control flex gap-3 items-center gap-5">
-            <p className="bg-white rounded p-2 text-black font-bold hover:opacity-[0.8] cursor-pointer">
+            <p className="bg-[#0a0a0a] text-[#ededed] dark:bg-white rounded p-2 dark:text-black font-bold hover:opacity-[0.8] cursor-pointer">
               All
             </p>
             <p>Featured</p>
           </div>
           <div className="control flex gap-3 items-center gap-5">
             <p>All</p>
-            <p className="bg-white rounded p-2 text-black font-bold hover:opacity-[0.8] cursor-pointer">
+            <p className="bg-[#0a0a0a] text-[#ededed] dark:bg-white rounded p-2 dark:text-black font-bold hover:opacity-[0.8] cursor-pointer">
               Mobile App
             </p>
             <p>Website App</p>
@@ -33,7 +33,7 @@ export default function PortfoliosPage() {
           .fill(null)
           .map((value, index) => (
             <LinkCustomPortfolios href="/portfolios/1" key={index}>
-              <div className="border-1 border-solid border-gray-700 p-5 rounded hover:cursor-pointer transition hover:bg-white hover:text-black hover:scale-[1.03]">
+              <div className="border-1 border-solid border-gray-700 p-5 rounded hover:cursor-pointer transition hover:bg-[#0a0a0a] dark:hover:bg-white hover:text-[#ededed] dark:hover:text-black hover:scale-[1.03]">
                 <div className="head">
                   <p className="text-xl font-bold">CGS: Itradefund</p>
                 </div>

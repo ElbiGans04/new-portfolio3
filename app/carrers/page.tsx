@@ -53,7 +53,7 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
         </div>
 
         {/* Divider */}
-        <div className="w-[90%] mx-auto h-[1px] bg-white opacity-[0.1]"></div>
+        <div className="w-[90%] mx-auto h-[1px] bg-[#0a0a0a] dark:bg-white opacity-[0.1]"></div>
 
         {/* Item */}
         <div className="flex flex-col gap-5">

@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { use, useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef } from "react";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import AppContext from "../_contexts/appContext";
 
 function toggleActiveAttribute(element: HTMLDivElement | null) {
@@ -27,7 +27,7 @@ export default function ResponsiveNavbar({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const pathName = usePathname();
-  const {loading, setLoading} = use(AppContext);
+  const { loading, setLoading } = use(AppContext);
 
   // Special Hook Effect
   useEffect(() => {
@@ -41,12 +41,12 @@ export default function ResponsiveNavbar({
       {/* ${isNavbarShowing ? 'max-md:top-0' : 'max-md:top-[-100%]'} */}
       <div
         ref={ref}
-        className={`transition-all duration-[0.5s] fixed max-md:right-0 max-md:left-0 max-md:bottom-0 max-md:bg-black lg:relative  max-h-screen flex flex-col lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-1000%]`}
+        className={`transition-all z-100 dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717] duration-[0.5s] fixed max-lg:right-0 max-lg:left-0 max-lg:bottom-0 lg:relative  max-h-screen flex flex-col lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-1000%]`}
       >
         <div className="lg:hidden">
           <button
             onClick={() => toggleActiveAttribute(ref.current)}
-            className="p-3 border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5]"
+            className="p-3 border-[#0a0a0a]  dark:border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5]"
           >
             <IoMdClose size={28} />
           </button>
@@ -77,6 +77,7 @@ export default function ResponsiveNavbar({
             </Link>
           ))}
         </div>
+
         {children}
       </div>
 
@@ -85,7 +86,7 @@ export default function ResponsiveNavbar({
         <button
           disabled={loading}
           onClick={() => toggleActiveAttribute(ref.current)}
-          className="p-3 border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5] disabled:opacity-[0.5]"
+          className="p-3 border-[#0a0a0a] dark:border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5] disabled:opacity-[0.5]"
         >
           <IoMenu size={28} />
         </button>

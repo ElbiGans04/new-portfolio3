@@ -35,7 +35,7 @@ export default function ButtonScrollToTop() {
         });
       }}
       ref={ref}
-      className="rounded-[50%] bg-white text-black data-visible:block hidden border-1 border-solid border-white p-3 fixed bottom-10 right-10 lg:right-20 hover:opacity-[0.8] active:opacity-[0.5] cursor-pointer"
+      className="rounded-[50%] data-visible:block bg-[#0a0a0a] dark:bg-white text-[#ededed] dark:text-[#171717] hidden border-1 border-solid border-white p-3 fixed bottom-10 right-10 lg:right-20 hover:opacity-[0.8] active:opacity-[0.5] cursor-pointer"
     >
       <FaArrowUp size={20}></FaArrowUp>
     </button>

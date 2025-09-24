@@ -4,6 +4,7 @@ import ResponsiveNavbar from "./_layouts/responsiveNavbar";
 import "./globals.css";
 import ButtonScrollToTop from "./_layouts/buttonScrollToTop";
 import WrapperAppContext from "./_layouts/wrapperAppContext";
+import DarkModeToggle from "./_layouts/darkmode";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-white selection:text-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:selection:bg-white dark:selection:text-black selection:bg-[#0a0a0a] selection:text-[#ededed] dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717]`}
       >
         <WrapperAppContext>
-          <div className="w-full h-full min-h-screen max-h-screen lg:grid lg:grid-cols-4 relative">
+          <div className="w-full h-full min-h-screen lg:grid lg:grid-cols-4 relative dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717]">
             {/* List Of Page */}
             <ResponsiveNavbar>
               <>
@@ -42,6 +43,9 @@ export default function RootLayout({
                   <div>ENGLISH</div>
                   <div>INDONESIA</div>
                 </div>
+
+                {/* Dark Mode Toggle */}
+                <DarkModeToggle />
               </>
             </ResponsiveNavbar>
 
@@ -49,7 +53,7 @@ export default function RootLayout({
             <ButtonScrollToTop></ButtonScrollToTop>
 
             {/* Main Page */}
-            <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8">
+            <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8 dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717]">
               <div className="">{children}</div>
               <footer className="mt-10">
                 <p>
