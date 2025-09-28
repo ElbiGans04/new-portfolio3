@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
+import moment from 'moment'
 
 export const metadata: Metadata = {
   title: "Carrers | Rhafael Bijaksana",
@@ -111,9 +112,9 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
                   </h2>
                   <p className="lg:text-md">
                     {value.properties["Location"].rich_text[0].plain_text} |{" "}
-                    {value.properties["Start Date"].date.start}{" "}
+                    {moment(value.properties["Start Date"].date.start).format('MMM D, YYYY')}{" "}
                     {value.properties["End Date"].date?.start
-                      ? ` - ${value.properties["End Date"].date?.start}`
+                      ? ` - ${moment(value.properties["End Date"].date.start).format('MMM D, YYYY')}`
                       : " - Now"}
                     {}
                   </p>
