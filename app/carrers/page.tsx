@@ -1,12 +1,77 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Carrers | Rhafael Bijaksana",
 };
 
 export default async function CarrersPage(props: PageProps<"/carrers">) {
-  const typeParams = (await props.searchParams).type as string;
+  const typeParams = (await props.searchParams).type as
+    | "all"
+    | "active"
+    | undefined;
+
+  const requestDataBody = JSON.stringify({
+    filter: {
+      property: "Gy_L",
+      date: {
+        is_empty: true,
+      },
+    },
+  });
+
+  const requestData = await fetch(
+    `${process.env.NOTION_BASE_URL}/data_sources/27c30f0e-6f0d-80c1-8aea-000b72dbca55/query`,
+    {
+      method: "post",
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_KEY}`,
+        "Notion-Version": `2025-09-03`,
+        "Content-Type": "application/json"
+      },
+      cache: "force-cache",
+      body: typeParams == "active" ? requestDataBody : undefined,
+    }
+  );
+
+  const data = (await requestData.json()) as {
+    results: {
+      id: string;
+      properties: {
+        As: {
+          rich_text: {
+            plain_text: string;
+          }[];
+        };
+        "Company Name": {
+          title: {
+            plain_text: string;
+          }[];
+        };
+        Description: {
+          rich_text: {
+            plain_text: string;
+          }[];
+        };
+        "End Date": {
+          date: {
+            start: string;
+          };
+        };
+        Location: {
+          rich_text: {
+            plain_text: string;
+          }[];
+        };
+        "Start Date": {
+          date: {
+            start: string;
+          };
+        };
+      };
+    }[];
+  };
 
   return (
     <>
@@ -35,41 +100,39 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
         </div>
       </div>
       <div className="mt-10 gap-16 flex flex-col">
-        {/* Item */}
-        <div className="flex flex-col gap-5">
-          <div>
-            <h2 className="text-xl lg:text-2xl">PT. KANEZZA TECH</h2>
-            <p className="lg:text-md">Tangerang | Nov, 2023 - Apr, 2024</p>
-            <p className="text-md font-bold">Fullstack Developer</p>
-          </div>
-          <p className="text-md">
-            As a Full Stack Engineer, I am responsible for end-to-end web
-            development — from building modern frontends to managing backend
-            services and server infrastructure. I also play a key role in
-            bridging communication between IT vendors and clients, including
-            attending on-site meetings to ensure alignment on technical and
-            business requirements.
-          </p>
-        </div>
+        {data.results.map((value, index, initial) => {
+          return (
+            <React.Fragment key={value.id}>
+              {/* Item */}
+              <div className="flex flex-col gap-5">
+                <div>
+                  <h2 className="text-xl lg:text-2xl">
+                    {value.properties["Company Name"].title[0].plain_text}
+                  </h2>
+                  <p className="lg:text-md">
+                    {value.properties["Location"].rich_text[0].plain_text} |{" "}
+                    {value.properties["Start Date"].date.start}{" "}
+                    {value.properties["End Date"].date?.start
+                      ? ` - ${value.properties["End Date"].date?.start}`
+                      : " - Now"}
+                    {}
+                  </p>
+                  <p className="text-md font-bold">
+                    {value.properties.As.rich_text[0].plain_text}
+                  </p>
+                </div>
+                <p className="text-md">
+                  {value.properties.Description.rich_text[0].plain_text}
+                </p>
+              </div>
 
-        {/* Divider */}
-        <div className="w-[90%] mx-auto h-[1px] bg-[#0a0a0a] dark:bg-white opacity-[0.1]"></div>
-
-        {/* Item */}
-        <div className="flex flex-col gap-5">
-          <div>
-            <h2 className="text-xl lg:text-2xl">PT. INARRAY INDONESIA</h2>
-            <p className="lg:text-md">Tangerang | Aug, 2022 - Okt, 2023</p>
-            <p className="text-md font-bold">Frontend Developer</p>
-          </div>
-          <p className="text-md">
-            As a Frontend Developer, I focus on developing user interfaces for
-            internal tools and external client applications. My responsibilities
-            include converting UI/UX designs into responsive web pages
-            (slicing), integrating APIs, implementing business logic, and
-            optimizing performance across various browsers and devices
-          </p>
-        </div>
+              {/* Divider */}
+              {index !== initial.length - 1 && (
+                <div className="w-[90%] mx-auto h-[1px] bg-[#0a0a0a] dark:bg-white opacity-[0.1]"></div>
+              )}
+            </React.Fragment>
+          );
+        })}
       </div>
     </>
   );

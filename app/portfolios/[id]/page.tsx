@@ -6,46 +6,96 @@ export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
 };
 
-export default function PortfoliosPage() {
+export default async function PortfoliosPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const requestData = await fetch(
+    `${process.env.NOTION_BASE_URL}/data_sources/27c30f0e-6f0d-81fc-bf7c-000b7d2f8bf0/query`,
+    {
+      method: "post",
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_KEY}`,
+        "Notion-Version": `2025-09-03`,
+        // "Content-Type": "application/json",
+      },
+      cache: "force-cache",
+      // body: typeParams == "active" ? requestDataBody : undefined,
+    }
+  );
+
+  const data = (await requestData.json()) as {
+    results: {
+      id: string;
+      properties: {
+        Featured: {
+          checkbox: boolean;
+        };
+        "Project Title": {
+          title: {
+            plain_text: string;
+          }[];
+        };
+        Description: {
+          rich_text: {
+            plain_text: string;
+          }[];
+        };
+        "Technology Used": {
+          rich_text: {
+            plain_text: string;
+          }[];
+        };
+        "Url Project": {
+          url: string;
+        };
+      };
+    }[];
+  };
+
+  const selectedData = data.results.find((value) => value.id === id);
+
   return (
     <>
       <div className="flex gap-3 mb-6">
-        <LinkCustomPortfolios className="underline" href={"/portfolios"}>Portfolios</LinkCustomPortfolios>
+        <LinkCustomPortfolios
+          className="underline hover:no-underline"
+          href={"/portfolios"}
+        >
+          Portfolios
+        </LinkCustomPortfolios>
         <p>/</p>
-        <p>TEST TEST TEST</p>
+        <p>{selectedData?.properties["Project Title"].title[0].plain_text}</p>
       </div>
       <div className="flex flex-col gap-3">
-        <h1 className="text-2xl lg:text-5xl">CGS: Itradefund</h1>
+        <h1 className="text-2xl lg:text-5xl">
+          {selectedData?.properties["Project Title"].title[0].plain_text}
+        </h1>
         <div className="flex flex-col gap-1">
           <p>
-            <span className="font-bold">Development Time</span> : 20 Aug 2025 -
-            31 Mai 2021
+            <span className="font-bold">Technology Used</span> :{" "}
+            {
+              selectedData?.properties["Technology Used"].rich_text[0]
+                .plain_text
+            }
           </p>
           <p>
-            <span className="font-bold">Technology Used</span> : Next Js, React
-            Js, Flutter
-          </p>
-          <p>
-            <span className="font-bold">Url Project</span> : 20 Aug 2025 - 31
-            Mai 2021
+            <span className="font-bold">Url Project</span> :{" "}
+            <a
+              className="underline hover:no-underline"
+              target="_blank"
+              href={selectedData?.properties["Url Project"].url}
+            >
+              {" "}
+              {selectedData?.properties["Url Project"].url}
+            </a>
           </p>
         </div>
       </div>
       <div className="mt-8">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-          dolore aliquam possimus nisi praesentium saepe numquam iste libero
-          accusantium id eius vel soluta, dolor deleniti eum aspernatur autem
-          molestias amet non doloremque. Quod voluptatibus nesciunt totam
-          quaerat veritatis inventore quae corporis porro similique voluptas qui
-          atque aspernatur perferendis impedit, pariatur rerum autem, est
-          possimus ipsa debitis obcaecati nihil illum? Rerum delectus sit fugiat
-          laboriosam perferendis aperiam, officia rem, perspiciatis, neque ipsum
-          iste. Voluptate fuga odit rem nihil, error praesentium architecto
-          mollitia laudantium at dolorum eligendi assumenda sapiente repudiandae
-          minima ratione sequi totam reiciendis impedit quasi nostrum dicta
-          consectetur esse commodi?
-        </p>
+        <p>{selectedData?.properties.Description.rich_text[0].plain_text}</p>
       </div>
     </>
   );
