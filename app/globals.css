@@ -25,4 +25,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Setting Dark Mode */
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* Setting Animation */
+@layer utilities {
+  @keyframes scale-up4 {
+    20% {
+      background-color: #fff;
+      transform: scaleY(1.5);
+    }
+    40% {
+      transform: scaleY(1);
+    }
+  }
+  .animate-scale-up4 {
+    animation: scale-up4 1s linear infinite;
+  }
+}
