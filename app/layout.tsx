@@ -37,12 +37,12 @@ export default function RootLayout({
             {/* List Of Page */}
             <ResponsiveNavbar>
               <>
-                <div className="h-[1px] bg-white"></div>
+                <div className="h-[1px]  bg-[#0a0a0a]  dark:bg-white"></div>
 
-                <div className="flex gap-5">
+                {/* <div className="flex gap-5">
                   <div>ENGLISH</div>
                   <div>INDONESIA</div>
-                </div>
+                </div> */}
 
                 {/* Dark Mode Toggle */}
                 <DarkModeToggle />
