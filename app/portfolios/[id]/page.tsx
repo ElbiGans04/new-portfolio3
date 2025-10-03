@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import LinkCustomPortfolios from "../_components/link";
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 import React, { JSX } from "react";
 import CarrersNavLink from "./components/carrersNavLink";
 
-export default function CarrersLayout({ children }: { children: JSX.Element }) {
+export default function CarrersLayout({ children }: LayoutProps<"/carrers">) {
   return (
     <>
       <div className="flex flex-col gap-3">

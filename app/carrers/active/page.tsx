@@ -40,7 +40,7 @@ export default async function CarrersActive() {
     <>
       {data.results.map((value, index, initial) => {
         return (
-          <CarrerItem key={value.id} isDividerShow={false} value={value} />
+          <CarrerItem key={value.id} isDividerShow={index !== (initial.length - 1)} value={value} />
         );
       })}
     </>

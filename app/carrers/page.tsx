@@ -42,10 +42,6 @@ export const metadata: Metadata = {
 };
 
 export default async function CarrersPage(props: PageProps<"/carrers">) {
-  const typeParams = (await props.searchParams).type as
-    | "all"
-    | "active"
-    | undefined;
 
   const requestDataBody = JSON.stringify({
     sorts: [
@@ -78,7 +74,7 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
     <>
       {data.results.map((value, index, initial) => {
         return (
-          <CarrerItem key={value.id} isDividerShow={false} value={value} />
+          <CarrerItem key={value.id} isDividerShow={index !== (initial.length - 1)} value={value} />
         );
       })}
     </>
