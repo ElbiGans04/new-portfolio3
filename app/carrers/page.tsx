@@ -1,7 +1,41 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import React from "react";
-import moment from "moment";
+import CarrerItem from "./components/item";
+
+export type DataItem = {
+  id: string;
+  properties: {
+    As: {
+      rich_text: {
+        plain_text: string;
+      }[];
+    };
+    "Company Name": {
+      title: {
+        plain_text: string;
+      }[];
+    };
+    Description: {
+      rich_text: {
+        plain_text: string;
+      }[];
+    };
+    "End Date": {
+      date: {
+        start: string;
+      };
+    };
+    Location: {
+      rich_text: {
+        plain_text: string;
+      }[];
+    };
+    "Start Date": {
+      date: {
+        start: string;
+      };
+    };
+  };
+};
 
 export const metadata: Metadata = {
   title: "Carrers | Rhafael Bijaksana",
@@ -14,15 +48,6 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
     | undefined;
 
   const requestDataBody = JSON.stringify({
-    filter:
-      typeParams == "active"
-        ? {
-            property: "Gy_L",
-            date: {
-              is_empty: true,
-            },
-          }
-        : undefined,
     sorts: [
       {
         property: "JrVu",
@@ -46,108 +71,16 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
   );
 
   const data = (await requestData.json()) as {
-    results: {
-      id: string;
-      properties: {
-        As: {
-          rich_text: {
-            plain_text: string;
-          }[];
-        };
-        "Company Name": {
-          title: {
-            plain_text: string;
-          }[];
-        };
-        Description: {
-          rich_text: {
-            plain_text: string;
-          }[];
-        };
-        "End Date": {
-          date: {
-            start: string;
-          };
-        };
-        Location: {
-          rich_text: {
-            plain_text: string;
-          }[];
-        };
-        "Start Date": {
-          date: {
-            start: string;
-          };
-        };
-      };
-    }[];
+    results: DataItem[];
   };
 
   return (
     <>
-      <div className="flex flex-col gap-3">
-        <h1 className="text-2xl lg:text-5xl">Carrers</h1>
-        <div className="flex gap-4">
-          {/* Selain active, maka tampilkan semua */}
-          <Link
-            href={"/carrers?type=all"}
-            replace
-            className={`cursor-pointer rounded-xl hover:opacity-[0.5] ${
-              typeParams != "active" ? "underline font-bold" : ""
-            }`}
-          >
-            All Jobs
-          </Link>
-          <Link
-            href={"/carrers?type=active"}
-            replace
-            className={`cursor-pointer rounded-xl hover:opacity-[0.5] ${
-              typeParams == "active" ? "underline font-bold" : ""
-            }`}
-          >
-            Active Jobs
-          </Link>
-        </div>
-      </div>
-      <div className="mt-10 gap-16 flex flex-col">
-        {data.results.map((value, index, initial) => {
-          return (
-            <React.Fragment key={value.id}>
-              {/* Item */}
-              <div className="flex flex-col gap-5">
-                <div>
-                  <h2 className="text-xl lg:text-2xl">
-                    {value.properties["Company Name"].title[0].plain_text}
-                  </h2>
-                  <p className="lg:text-md">
-                    {value.properties["Location"].rich_text[0].plain_text} |{" "}
-                    {moment(value.properties["Start Date"].date.start).format(
-                      "MMM D, YYYY"
-                    )}{" "}
-                    {value.properties["End Date"].date?.start
-                      ? ` - ${moment(
-                          value.properties["End Date"].date.start
-                        ).format("MMM D, YYYY")}`
-                      : " - Now"}
-                    {}
-                  </p>
-                  <p className="text-md font-bold">
-                    {value.properties.As.rich_text[0].plain_text}
-                  </p>
-                </div>
-                <p className="text-md">
-                  {value.properties.Description.rich_text[0].plain_text}
-                </p>
-              </div>
-
-              {/* Divider */}
-              {index !== initial.length - 1 && (
-                <div className="w-[90%] mx-auto h-[1px] bg-[#0a0a0a] dark:bg-white opacity-[0.1]"></div>
-              )}
-            </React.Fragment>
-          );
-        })}
-      </div>
+      {data.results.map((value, index, initial) => {
+        return (
+          <CarrerItem key={value.id} isDividerShow={false} value={value} />
+        );
+      })}
     </>
   );
 }
