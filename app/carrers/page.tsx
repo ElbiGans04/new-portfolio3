@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
-import moment from 'moment'
+import moment from "moment";
 
 export const metadata: Metadata = {
   title: "Carrers | Rhafael Bijaksana",
@@ -14,12 +14,21 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
     | undefined;
 
   const requestDataBody = JSON.stringify({
-    filter: {
-      property: "Gy_L",
-      date: {
-        is_empty: true,
+    filter:
+      typeParams == "active"
+        ? {
+            property: "Gy_L",
+            date: {
+              is_empty: true,
+            },
+          }
+        : undefined,
+    sorts: [
+      {
+        property: "JrVu",
+        direction: "descending",
       },
-    },
+    ],
   });
 
   const requestData = await fetch(
@@ -29,10 +38,10 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
       headers: {
         Authorization: `Bearer ${process.env.NOTION_KEY}`,
         "Notion-Version": `2025-09-03`,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       cache: "force-cache",
-      body: typeParams == "active" ? requestDataBody : undefined,
+      body: requestDataBody,
     }
   );
 
@@ -112,9 +121,13 @@ export default async function CarrersPage(props: PageProps<"/carrers">) {
                   </h2>
                   <p className="lg:text-md">
                     {value.properties["Location"].rich_text[0].plain_text} |{" "}
-                    {moment(value.properties["Start Date"].date.start).format('MMM D, YYYY')}{" "}
+                    {moment(value.properties["Start Date"].date.start).format(
+                      "MMM D, YYYY"
+                    )}{" "}
                     {value.properties["End Date"].date?.start
-                      ? ` - ${moment(value.properties["End Date"].date.start).format('MMM D, YYYY')}`
+                      ? ` - ${moment(
+                          value.properties["End Date"].date.start
+                        ).format("MMM D, YYYY")}`
                       : " - Now"}
                     {}
                   </p>

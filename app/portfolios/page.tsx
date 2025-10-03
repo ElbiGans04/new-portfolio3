@@ -12,12 +12,21 @@ export default async function PortfoliosPage(props: PageProps<"/portfolios">) {
     | undefined;
 
   const requestDataBody = JSON.stringify({
-    filter: {
-      property: "fxRp",
-      checkbox: {
-        equals: true,
+    filter:
+      typeParams == "featured"
+        ? {
+            property: "fxRp",
+            checkbox: {
+              equals: true,
+            },
+          }
+        : undefined,
+    sorts: [
+      {
+        property: "title",
+        direction: "ascending",
       },
-    },
+    ],
   });
 
   const requestData = await fetch(
@@ -30,7 +39,7 @@ export default async function PortfoliosPage(props: PageProps<"/portfolios">) {
         "Content-Type": "application/json",
       },
       cache: "force-cache",
-      body: typeParams == "featured" ? requestDataBody : undefined,
+      body: requestDataBody,
     }
   );
 
