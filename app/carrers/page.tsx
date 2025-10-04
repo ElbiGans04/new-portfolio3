@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CarrerItem from "./components/item";
+import CarrerItem from "./_components/item";
 
 export type DataItem = {
   id: string;

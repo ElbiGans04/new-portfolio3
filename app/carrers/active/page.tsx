@@ -1,6 +1,11 @@
 import React, { JSX } from "react";
-import CarrerItem from "../components/item";
+import CarrerItem from "../_components/item";
 import { DataItem } from "../page";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Carrers | Rhafael Bijaksana",
+};
 
 export default async function CarrersActive() {
   const requestDataBody = JSON.stringify({
