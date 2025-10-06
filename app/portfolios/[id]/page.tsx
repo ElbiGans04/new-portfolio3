@@ -54,7 +54,13 @@ export default async function PortfoliosPage({
     }[];
   };
 
+  
   const selectedData = data.results.find((value) => value.id === id);
+
+  // Jika not found
+  if (!selectedData) {
+    return <p>Sorry, Data not found</p>
+  }
 
   return (
     <>
