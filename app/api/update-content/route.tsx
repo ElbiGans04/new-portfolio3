@@ -97,8 +97,7 @@ export async function POST(request: Request) {
       [index: string]: string[];
     };
 
-    const selectedPagesNotionId = validatedFields.data.data.parent
-      .data_source_id
+    const selectedPagesNotionId = validatedFields.data.data.parent.type === "database"
       ? pagesNotionId[validatedFields.data.data.parent.data_source_id as string]
       : pagesNotionId[notionEntityUpdate.id];
     // SEMENTARA
