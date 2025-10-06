@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   title: "Carrers | Rhafael Bijaksana",
 };
 
-export default async function CarrersPage(props: PageProps<"/carrers">) {
+export default async function CarrersPage() {
 
   const requestDataBody = JSON.stringify({
     sorts: [
