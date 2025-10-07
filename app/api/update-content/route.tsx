@@ -27,10 +27,6 @@ export async function POST(request: Request) {
     const resBody = await request.json();
     const validatedFields = schema.safeParse(resBody);
 
-
-    // TEST
-    console.log(resBody)
-
     //   Jika header tidak ada
     if (!notionKey) {
       console.log("HEADER NOT VALID");
@@ -119,6 +115,9 @@ export async function POST(request: Request) {
         }
       );
     }
+
+        // TEST
+    console.log(resBody, selectedPagesNotionId, validatedFields.data)
 
     // Regenerate Page
     selectedPagesNotionId.forEach((val) => {
