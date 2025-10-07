@@ -115,10 +115,7 @@ export async function POST(request: Request) {
         }
       );
     }
-
-        // TEST
-    console.log(resBody, selectedPagesNotionId, validatedFields.data)
-
+    
     // Regenerate Page
     selectedPagesNotionId.forEach((val) => {
       revalidatePath(val);
