@@ -54,7 +54,7 @@ export default function ResponsiveNavbar({
 
         <div className="gap-[36px] flex flex-col ">
           {[
-            { nameTitle: "About Me", path: "/" },
+            { nameTitle: "About Me", path: "/about-me" },
             { nameTitle: "Carrers", path: "/carrers" },
             { nameTitle: "Contacts", path: "/contacts" },
             { nameTitle: "Portfolios", path: "/portfolios" },

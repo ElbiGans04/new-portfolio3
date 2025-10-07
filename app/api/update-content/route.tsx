@@ -91,7 +91,7 @@ export async function POST(request: Request) {
         // Tambahkan buat detailnya
         `/portfolios/${notionEntityUpdate.id}`,
       ],
-      "27c30f0e-6f0d-805f-9c03-ddcb94b79072": ["/"], // urlnya sudah benar
+      "27c30f0e-6f0d-805f-9c03-ddcb94b79072": ["/about-me"], // urlnya sudah benar
       "27c30f0e-6f0d-80c1-8aea-000b72dbca55": ["/carrers", "/carrers/active"],
     } as {
       [index: string]: string[];

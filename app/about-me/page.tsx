@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "About Me | Rhafael Bijaksana",
 };
 
-export default async function Home() {
+export default async function AboutMe() {
   const requestData = await fetch(
     `${process.env.NOTION_BASE_URL}/blocks/27c30f0e6f0d805f9c03ddcb94b79072/children`,
     {
