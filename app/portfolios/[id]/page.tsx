@@ -5,6 +5,56 @@ export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
 };
 
+interface PortfolioItem {
+  results: {
+    id: string;
+    properties: {
+      Featured: {
+        checkbox: boolean;
+      };
+      "Project Title": {
+        title: {
+          plain_text: string;
+        }[];
+      };
+      Description: {
+        rich_text: {
+          plain_text: string;
+        }[];
+      };
+      "Technology Used": {
+        rich_text: {
+          plain_text: string;
+        }[];
+      };
+      "Url Project": {
+        url: string;
+      };
+    };
+  }[];
+}
+
+export const dynamicParams = true;
+export const dynamic = 'force-static';
+
+export async function generateStaticParams() {
+  const posts = (await fetch(
+    `${process.env.NOTION_BASE_URL}/data_sources/27c30f0e-6f0d-81fc-bf7c-000b7d2f8bf0/query`,
+    {
+      method: "post",
+      headers: {
+        Authorization: `Bearer ${process.env.NOTION_KEY}`,
+        "Notion-Version": `2025-09-03`,
+      },
+      cache: "force-cache",
+    }
+  ).then((res) => res.json())) as PortfolioItem;
+
+  return posts.results.map((post) => ({
+    id: post.id,
+  }));
+}
+
 export default async function PortfoliosPage({
   params,
 }: {
@@ -25,41 +75,13 @@ export default async function PortfoliosPage({
     }
   );
 
-  const data = (await requestData.json()) as {
-    results: {
-      id: string;
-      properties: {
-        Featured: {
-          checkbox: boolean;
-        };
-        "Project Title": {
-          title: {
-            plain_text: string;
-          }[];
-        };
-        Description: {
-          rich_text: {
-            plain_text: string;
-          }[];
-        };
-        "Technology Used": {
-          rich_text: {
-            plain_text: string;
-          }[];
-        };
-        "Url Project": {
-          url: string;
-        };
-      };
-    }[];
-  };
+  const data = (await requestData.json()) as PortfolioItem;
 
-  
   const selectedData = data.results.find((value) => value.id === id);
 
   // Jika not found
   if (!selectedData) {
-    return <p>Sorry, Data not found</p>
+    return <p>Sorry, Data not found</p>;
   }
 
   return (
