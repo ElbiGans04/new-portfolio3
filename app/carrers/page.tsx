@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import CarrerItem from "./_components/item";
+import CarrerItem from "@/app/carrers/_components/item";
 
-export type DataItem = {
+export type CarrerItemType = {
   id: string;
   properties: {
     As: {
@@ -67,7 +67,7 @@ export default async function CarrersPage() {
   );
 
   const data = (await requestData.json()) as {
-    results: DataItem[];
+    results: CarrerItemType[];
   };
 
   return (

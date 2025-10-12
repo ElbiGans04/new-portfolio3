@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import PortfolioItem from "../../_components/portfolioItem";
-import { TypeItemPortfolio } from "../page";
+import PortfolioItem from "@/app/portfolios/_components/portfolioItem";
+import { PortfolioItemType } from "@/app/portfolios/(main)/page";
 
 export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
@@ -37,7 +37,7 @@ export default async function PortfoliosMainFeatured() {
   );
 
   const data = (await requestData.json()) as {
-    results: TypeItemPortfolio[];
+    results: PortfolioItemType[];
   };
 
   return (

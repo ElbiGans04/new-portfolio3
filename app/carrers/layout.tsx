@@ -1,5 +1,5 @@
 import React, { JSX } from "react";
-import CarrersNavLink from "./_components/carrersNavLink";
+import CarrersNavLink from "@/app/carrers/_components/carrersNavLink";
 
 export default function CarrersLayout({ children }: LayoutProps<"/carrers">) {
   return (

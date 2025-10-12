@@ -1,4 +1,4 @@
-import PortfoliosNavbarActive from "../_components/navActive";
+import PortfoliosNavbarActive from "@/app/portfolios/_components/navActive";
 
 export default function PortfolioMainLayout({
   children,

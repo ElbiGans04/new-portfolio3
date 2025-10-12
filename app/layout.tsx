@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import ResponsiveNavbar from "./_layouts/responsiveNavbar";
+import ResponsiveNavbar from "@/app/_layouts/responsiveNavbar";
 import "./globals.css";
-import ButtonScrollToTop from "./_layouts/buttonScrollToTop";
-import WrapperAppContext from "./_layouts/wrapperAppContext";
-import DarkModeToggle from "./_layouts/darkmode";
+import ButtonScrollToTop from "@/app/_layouts/buttonScrollToTop";
+import WrapperAppContext from "@/app/_layouts/wrapperAppContext";
+import DarkModeToggle from "@/app/_layouts/darkmode";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

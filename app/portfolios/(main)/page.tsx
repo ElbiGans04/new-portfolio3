@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import PortfolioItem from "../_components/portfolioItem";
+import PortfolioItem from "@/app/portfolios/_components/portfolioItem";
 
-export type TypeItemPortfolio = {
+export type PortfolioItemType = {
   id: string;
   properties: {
     Featured: {
@@ -57,7 +57,7 @@ export default async function PortfoliosPage() {
   );
 
   const data = (await requestData.json()) as {
-    results: TypeItemPortfolio[];
+    results: PortfolioItemType[];
   };
 
   return (

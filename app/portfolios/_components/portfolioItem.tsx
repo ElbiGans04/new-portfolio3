@@ -1,7 +1,7 @@
-import { TypeItemPortfolio } from "../(main)/page";
-import LinkCustomPortfolios from "./link";
+import { PortfolioItemType } from "@/app/portfolios/(main)/page";
+import LinkCustomPortfolios from "@/app/portfolios/_components/link";
 
-export default function PortfolioItem({ value }: { value: TypeItemPortfolio }) {
+export default function PortfolioItem({ value }: { value: PortfolioItemType }) {
   return (
     <LinkCustomPortfolios href={`/portfolios/${value.id}`}>
       <div className="border-1 border-solid border-gray-700 p-5 rounded hover:cursor-pointer transition hover:bg-[#0a0a0a] dark:hover:bg-white hover:text-[#ededed] dark:hover:text-black hover:scale-[1.03]">

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import LinkCustomPortfolios from "../_components/link";
+import LinkCustomPortfolios from "@/app/portfolios/_components/link";
 
 export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",

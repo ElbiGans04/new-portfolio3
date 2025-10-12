@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import LinkCustomPortfolios from "./link";
+import LinkCustomPortfolios from "@/app/portfolios/_components/link";
 
 export default function PortfoliosNavbarActive() {
   const pathName = usePathname();

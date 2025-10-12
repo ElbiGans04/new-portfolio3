@@ -1,12 +1,12 @@
 import React from "react";
-import { DataItem } from "../page";
+import { CarrerItemType } from "@/app/carrers/page";
 import moment from "moment";
 
 export default function CarrerItem({
   value,
   isDividerShow,
 }: {
-  value: DataItem;
+  value: CarrerItemType;
   isDividerShow: boolean;
 }) {
   return (

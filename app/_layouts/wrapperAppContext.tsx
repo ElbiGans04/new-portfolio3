@@ -1,7 +1,7 @@
 "use client";
 
 import { JSX, useMemo, useState } from "react";
-import AppContext from "../_contexts/appContext";
+import AppContext from "@/app/_contexts/appContext";
 
 export default function WrapperAppContext({children}: {children: JSX.Element}) {
   const [loading, setLoading] = useState(false);

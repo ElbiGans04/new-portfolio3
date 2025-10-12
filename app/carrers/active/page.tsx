@@ -1,6 +1,5 @@
-import React, { JSX } from "react";
-import CarrerItem from "../_components/item";
-import { DataItem } from "../page";
+import CarrerItem from "@/app/carrers/_components/item";
+import { CarrerItemType } from "@/app/carrers/page";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,7 +37,7 @@ export default async function CarrersActive() {
   );
 
   const data = (await requestData.json()) as {
-    results: DataItem[];
+    results: CarrerItemType[];
   };
 
   return (

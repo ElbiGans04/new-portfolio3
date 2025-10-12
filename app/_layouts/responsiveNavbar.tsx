@@ -6,7 +6,7 @@ import { use, useEffect, useRef } from "react";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
-import AppContext from "../_contexts/appContext";
+import AppContext from "@/app/_contexts/appContext";
 
 function toggleActiveAttribute(element: HTMLDivElement | null) {
   // kalau element ada
