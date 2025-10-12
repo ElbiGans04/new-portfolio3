@@ -41,12 +41,12 @@ export default function ResponsiveNavbar({
       {/* ${isNavbarShowing ? 'max-md:top-0' : 'max-md:top-[-100%]'} */}
       <div
         ref={ref}
-        className={`max-lg:transition-[top,left,right,bottom,color,background-color] transition-[top,left,right,bottom] z-100 dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717] duration-[0.5s] fixed max-lg:right-0 max-lg:left-0 max-lg:bottom-0 lg:relative  max-h-screen flex flex-col lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-1000%]`}
+        className={`max-lg:transition-[top,left,right,bottom,color,background-color] transition-[top,left,right,bottom] z-100 dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light duration-[0.5s] fixed max-lg:right-0 max-lg:left-0 max-lg:bottom-0 lg:relative  max-h-screen flex flex-col lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-1000%]`}
       >
         <div className="lg:hidden">
           <button
             onClick={() => toggleActiveAttribute(ref.current)}
-            className="p-3 border-[#0a0a0a]  dark:border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5]"
+            className="p-3 border-brand-dark  dark:border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5]"
           >
             <IoMdClose size={28} />
           </button>
@@ -86,7 +86,7 @@ export default function ResponsiveNavbar({
         <button
           disabled={loading}
           onClick={() => toggleActiveAttribute(ref.current)}
-          className="p-3 border-[#0a0a0a] dark:border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5] disabled:opacity-[0.5]"
+          className="p-3 border-brand-dark dark:border-white border-solid border-1 rounded-[50%] hover:opacity-[0.5] disabled:opacity-[0.5]"
         >
           <IoMenu size={28} />
         </button>

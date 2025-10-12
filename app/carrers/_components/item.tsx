@@ -41,7 +41,7 @@ export default function CarrerItem({
 
         {/* Divider */}
         {isDividerShow && (
-          <div className="w-[90%] mx-auto h-[1px] bg-[#0a0a0a] dark:bg-white opacity-[0.1]"></div>
+          <div className="w-[90%] mx-auto h-[1px] bg-brand-dark dark:bg-white opacity-[0.1]"></div>
         )}
       </React.Fragment>
     </>

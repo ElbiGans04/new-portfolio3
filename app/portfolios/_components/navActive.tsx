@@ -12,7 +12,7 @@ export default function PortfoliosNavbarActive() {
           href="/portfolios"
           className={`border-1 border-white border-solid rounded p-2 ${
             pathName !== "/portfolios/featured"
-              ? "bg-[#0a0a0a] text-[#ededed] dark:bg-white rounded p-2 dark:text-black font-bold hover:opacity-[0.8] cursor-pointer"
+              ? "bg-brand-dark text-brand-text-dark dark:bg-white rounded p-2 dark:text-black font-bold hover:opacity-[0.8] cursor-pointer"
               : ""
           }`}
         >
@@ -22,7 +22,7 @@ export default function PortfoliosNavbarActive() {
           href="/portfolios/featured"
           className={`border-1 border-white border-solid rounded p-2 ${
             pathName == "/portfolios/featured"
-              ? "bg-[#0a0a0a] text-[#ededed] dark:bg-white rounded p-2 dark:text-black font-bold hover:opacity-[0.8] cursor-pointer"
+              ? "bg-brand-dark text-brand-text-dark dark:bg-white rounded p-2 dark:text-black font-bold hover:opacity-[0.8] cursor-pointer"
               : ""
           }`}
         >

@@ -4,7 +4,7 @@ import LinkCustomPortfolios from "@/app/portfolios/_components/link";
 export default function PortfolioItem({ value }: { value: PortfolioItemType }) {
   return (
     <LinkCustomPortfolios href={`/portfolios/${value.id}`}>
-      <div className="border-1 border-solid border-gray-700 p-5 rounded hover:cursor-pointer transition hover:bg-[#0a0a0a] dark:hover:bg-white hover:text-[#ededed] dark:hover:text-black hover:scale-[1.03]">
+      <div className="border-1 border-solid border-gray-700 p-5 rounded hover:cursor-pointer transition hover:bg-brand-dark dark:hover:bg-white hover:text-brand-text-dark dark:hover:text-black hover:scale-[1.03]">
         <div className="head">
           <p className="text-xl font-bold">
             {value.properties["Project Title"].title[0].plain_text}

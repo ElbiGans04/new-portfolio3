@@ -30,14 +30,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:selection:bg-white dark:selection:text-black selection:bg-[#0a0a0a] selection:text-[#ededed] dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:selection:bg-white dark:selection:text-black selection:bg-brand-dark selection:text-brand-text-dark dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light`}
       >
         <WrapperAppContext>
-          <div className="w-full h-full min-h-screen lg:grid lg:grid-cols-4 relative dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717]">
+          <div className="w-full h-full min-h-screen lg:grid lg:grid-cols-4 relative dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light">
             {/* List Of Page */}
             <ResponsiveNavbar>
               <>
-                <div className="h-[1px]  bg-[#0a0a0a]  dark:bg-white"></div>
+                <div className="h-[1px]  bg-brand-dark  dark:bg-white"></div>
 
                 {/* <div className="flex gap-5">
                   <div>ENGLISH</div>
@@ -53,7 +53,7 @@ export default function RootLayout({
             <ButtonScrollToTop></ButtonScrollToTop>
 
             {/* Main Page */}
-            <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8 dark:bg-[#0a0a0a] bg-white dark:text-[#ededed] text-[#171717]">
+            <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8 dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light">
               <div className="">{children}</div>
               <footer className="mt-10">
                 <p>
