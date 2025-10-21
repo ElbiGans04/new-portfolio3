@@ -68,15 +68,12 @@ export default async function PortfoliosPage({
       headers: {
         Authorization: `Bearer ${process.env.NOTION_KEY}`,
         "Notion-Version": `2025-09-03`,
-        // "Content-Type": "application/json",
       },
       cache: "force-cache",
-      // body: typeParams == "active" ? requestDataBody : undefined,
     }
   );
 
   const data = (await requestData.json()) as PortfolioItem;
-
   const selectedData = data.results.find((value) => value.id === id);
 
   // Jika not found
