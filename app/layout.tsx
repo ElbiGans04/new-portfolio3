@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark:selection:bg-white dark:selection:text-black selection:bg-brand-dark selection:text-brand-text-dark dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light`}
       >
         <WrapperAppContext>
-          <div className="w-full h-full min-h-screen lg:grid lg:grid-cols-4 relative dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light">
+          <div className="w-full h-full min-h-screen relative dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light mt-[50px]">
             {/* List Of Page */}
             <ResponsiveNavbar>
               <>
@@ -53,7 +53,7 @@ export default function RootLayout({
             <ButtonScrollToTop></ButtonScrollToTop>
 
             {/* Main Page */}
-            <div className="col-span-3 lg:px-10 lg:py-24 py-12 px-8 dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light">
+            <div className="lg:max-w-4xl lg:mx-auto alg:px-30 lg:py-24 py-12 px-8 dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light">
               <div className="">{children}</div>
               <footer className="mt-10">
                 <p>

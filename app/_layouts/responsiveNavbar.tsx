@@ -41,7 +41,7 @@ export default function ResponsiveNavbar({
       {/* ${isNavbarShowing ? 'max-md:top-0' : 'max-md:top-[-100%]'} */}
       <div
         ref={ref}
-        className={`max-lg:transition-[top,left,right,bottom,color,background-color] transition-[top,left,right,bottom] z-100 dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light duration-[0.5s] fixed max-lg:right-0 max-lg:left-0 max-lg:bottom-0 lg:relative  max-h-screen flex flex-col lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-1000%]`}
+        className={`max-lg:transition-[top,left,right,bottom,color,background-color] transition-[top,left,right,bottom] z-100 dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light duration-[0.5s] fixed max-lg:right-0 max-lg:left-0 max-lg:bottom-0 lg:relative  max-h-screen flex flex-col lg:flex-row lg:justify-center lg:items-center pt-24 p-10 lg:p-5 gap-[48px] max-lg:data-active:top-0 max-lg:top-[-1000%]`}
       >
         <div className="lg:hidden">
           <button
@@ -52,7 +52,7 @@ export default function ResponsiveNavbar({
           </button>
         </div>
 
-        <div className="gap-[36px] flex flex-col ">
+        <div className="gap-[36px] flex flex-col lg:flex-row">
           {[
             { nameTitle: "About Me", path: "/about-me" },
             { nameTitle: "Carrers", path: "/carrers" },
