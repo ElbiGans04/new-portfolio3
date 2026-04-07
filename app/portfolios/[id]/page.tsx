@@ -55,12 +55,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PortfoliosPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
+export default async function PortfoliosPage(props: PageProps<'/portfolios/[id]'>) {
+  const { id } = await props.params;
   const requestData = await fetch(
     `${process.env.NOTION_BASE_URL}/data_sources/27c30f0e-6f0d-81fc-bf7c-000b7d2f8bf0/query`,
     {

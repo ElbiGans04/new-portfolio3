@@ -22,11 +22,7 @@ export const metadata: Metadata = {
 
 const yearNow = new Date().getFullYear();
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(props: LayoutProps<'/'>) {
   return (
     <html lang="en">
       <body
@@ -54,7 +50,7 @@ export default function RootLayout({
 
             {/* Main Page */}
             <div className="lg:max-w-4xl lg:mx-auto alg:px-30 lg:py-24 py-12 px-8 dark:bg-brand-dark bg-white dark:text-brand-text-dark text-brand-text-light">
-              <div className="">{children}</div>
+              <div className="">{props.children}</div>
               <footer className="mt-10">
                 <p>
                   Copyright 2025{yearNow === 2025 ? "" : `-${yearNow}`} -

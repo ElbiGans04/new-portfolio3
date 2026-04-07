@@ -6,7 +6,7 @@ export default function PortfoliosNavbarActive() {
   const pathName = usePathname();
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 mb-5">
       <div className="control flex gap-3 items-center gap-5">
         <LinkCustomPortfolios
           href="/portfolios"
