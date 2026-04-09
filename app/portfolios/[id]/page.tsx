@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import LinkCustomPortfolios from "@/app/portfolios/_components/link";
 import NextImage from 'next/image'
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
@@ -40,7 +41,9 @@ interface PortfolioItem {
   }[];
 }
 
+// Render halaman yang belum di generate oleh staticParams saat pertama kali request ( Sekali saja )
 export const dynamicParams = true;
+// Paksa halaman menjadi static 
 export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
@@ -80,7 +83,7 @@ export default async function PortfoliosPage(props: PageProps<'/portfolios/[id]'
 
   // Jika not found
   if (!selectedData) {
-    return <p>Sorry, Data not found</p>;
+    return notFound()
   }
 
   // Ada Images
