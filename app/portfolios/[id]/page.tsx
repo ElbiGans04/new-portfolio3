@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import LinkCustomPortfolios from "@/app/portfolios/_components/link";
 import NextImage from 'next/image'
 import { notFound } from "next/navigation";
+import PortfolioImage from "../_components/portfolioImage";
 
 export const metadata: Metadata = {
   title: "Portfolios | Rhafael Bijaksana",
@@ -131,13 +132,11 @@ export default async function PortfoliosPage(props: PageProps<'/portfolios/[id]'
       </div>
       <div className="mt-8 w-full h-full">
         <p>{selectedData?.properties.Description.rich_text[0].plain_text}</p>
-      
-        <div className="gap-[24px] w-full h-full relative flex flex-col mt-[36px] gap-[20px]">
+
+        <div className="gap-[24px] w-full h-full relative flex flex-col mt-[36px] gap-[30px]">
           {
             images && images.map((val, index) => {
-              return (
-                <NextImage src={val.plain_text} className="object-contain w-full h-full"  sizes="100vw"  key={`Portfolio-images-${index}`} alt="portfolio-image" width={0} height={0}/>
-              )
+              return (<PortfolioImage key={`Portfolio-images-${index}`} val={val} />)
             })
           }
         </div>
