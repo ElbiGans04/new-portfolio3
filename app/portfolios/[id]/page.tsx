@@ -87,12 +87,19 @@ export default async function PortfoliosPage(props: PageProps<'/portfolios/[id]'
     return notFound()
   }
 
-  // Ada Images
+  /* 
+    Images Filter. 
+    Mengapa dibagi bedasarkan nomor urut ? karena saya menggunakan pembatas pada notion ketika 
+    menyimpan url images terkait. Contoh : 
+    "gambar1.com/abd
+    @@@
+    gambar2"
+  */
   const images = selectedData?.properties.Images?.rich_text?.filter((v, i) => {
     if (i == 0) return true;
     return (i % 2) == 0 ? true : false;
   });
-
+  
   const bodyText = selectedData?.properties.Description.rich_text[0].plain_text.split('\n').filter(val => val);
 
   return (
