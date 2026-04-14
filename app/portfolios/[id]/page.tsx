@@ -93,6 +93,8 @@ export default async function PortfoliosPage(props: PageProps<'/portfolios/[id]'
     return (i % 2) == 0 ? true : false;
   });
 
+  const bodyText = selectedData?.properties.Description.rich_text[0].plain_text.split('\n').filter(val => val);
+
   return (
     <>
       <div className="flex gap-3 mb-6">
@@ -131,7 +133,16 @@ export default async function PortfoliosPage(props: PageProps<'/portfolios/[id]'
         </div>
       </div>
       <div className="mt-8 w-full h-full">
-        <p>{selectedData?.properties.Description.rich_text[0].plain_text}</p>
+        <div className="gap-5 flex flex-col">
+          {
+            bodyText.map((val, index) => {
+              return (
+                <p key={index}>{val}</p>
+              )
+            })
+          }
+
+        </div>
 
         <div className="gap-[24px] w-full h-full relative flex flex-col mt-[36px] gap-[30px]">
           {
